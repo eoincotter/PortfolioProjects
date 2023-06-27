@@ -1,1 +1,1 @@
-# PortfolioProjects
+Each month I undertake an analytics project with the aim of developing my skills and gaining insights into areas of interest to me. I aim to do an hour each day, so each of the projects is about 30 hours of work including project planning, software set-up, and learning new concepts. As much as possible I try to cover different technologies and areas of analytics.
