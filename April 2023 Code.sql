@@ -258,53 +258,53 @@ Recode LandUse
 */
 
 -- add new column LandUseRecoded
---ALTER TABLE SQLCleaningProject.dbo.NashvilleHousing
---ADD LandUseRecoded nvarchar(255);
+ALTER TABLE SQLCleaningProject.dbo.NashvilleHousing
+ADD LandUseRecoded nvarchar(255);
 
 -- Update LandUseRecoded to categorise LandUse into Residential, Commercial, and Land
---UPDATE NashvilleHousing
---SET LandUseRecoded = CASE 
---		WHEN Landuse in ('SINGLE FAMILY',
---						'RESIDENTIAL CONDO', 
---						'VACANT RESIDENTIAL LAND', 
---						'VACANT RES LAND', 
---						'DUPLEX', 
---						'ZERO LOT LINE', 
---						'CONDO',
---						'RESIDENTIAL COMBO/MISC',
---						'TRIPLEX',
---						'QUADPLEX',
---						'CONDOMINIUM OFC  OR OTHER COM CONDO',
---						'MOBILE HOME',
---						'DORMITORY/BOARDING HOUSE',
---						'SPLIT CLASS',
---						'PARSONAGE',
---						'VACANT RESIENTIAL LAND',
---						'VACANT ZONED MULTI FAMILY',
---						'APARTMENT: LOW RISE (BUILT SINCE 1960)'
---						) 
---						THEN 'Residential'
---		WHEN LandUse in ('CHURCH',
---						'VACANT COMMERCIAL LAND',
---						'PARKING LOT',
---						'RESTAURANT/CAFETERIA',
---						'NON-PROFIT CHARITABLE SERVICE',
---						'OFFICE BLDG (ONE OR TWO STORIES)',
---						'TERMINAL/DISTRIBUTION WAREHOUSE',
---						'DAY CARE CENTER',
---						'NIGHTCLUB/LOUNGE',
---						'CLUB/UNION HALL/LODGE',
---						'CONVENIENCE MARKET WITHOUT GAS',
---						'METRO OTHER THAN OFC, SCHOOL,HOSP, OR PARK',
---						'STRIP SHOPPING CENTER',
---						'LIGHT MANUFACTURING',
---						'MORTUARY/CEMETERY',
---						'SMALL SERVICE SHOP',
---						'ONE STORY GENERAL RETAIL STORE'
---						)
---						THEN 'Commercial'
---		ELSE 'Land'
---	END;
+UPDATE NashvilleHousing
+SET LandUseRecoded = CASE 
+		WHEN Landuse in ('SINGLE FAMILY',
+				'RESIDENTIAL CONDO', 
+				'VACANT RESIDENTIAL LAND', 
+				'VACANT RES LAND', 
+				'DUPLEX', 
+				'ZERO LOT LINE', 
+				'CONDO',
+				'RESIDENTIAL COMBO/MISC',
+				'TRIPLEX',
+				'QUADPLEX',
+				'CONDOMINIUM OFC  OR OTHER COM CONDO',
+				'MOBILE HOME',
+				'DORMITORY/BOARDING HOUSE',
+				'SPLIT CLASS',
+				'PARSONAGE',
+				'VACANT RESIENTIAL LAND',
+				'VACANT ZONED MULTI FAMILY',
+				'APARTMENT: LOW RISE (BUILT SINCE 1960)'
+				) 
+		THEN 'Residential'
+		WHEN LandUse in ('CHURCH',
+				'VACANT COMMERCIAL LAND',
+				'PARKING LOT',
+				'RESTAURANT/CAFETERIA',
+				'NON-PROFIT CHARITABLE SERVICE',
+				'OFFICE BLDG (ONE OR TWO STORIES)',
+				'TERMINAL/DISTRIBUTION WAREHOUSE',
+				'DAY CARE CENTER',
+				'NIGHTCLUB/LOUNGE',
+				'CLUB/UNION HALL/LODGE',
+				'CONVENIENCE MARKET WITHOUT GAS',
+				'METRO OTHER THAN OFC, SCHOOL,HOSP, OR PARK',
+				'STRIP SHOPPING CENTER',
+				'LIGHT MANUFACTURING',
+				'MORTUARY/CEMETERY',
+				'SMALL SERVICE SHOP',
+				'ONE STORY GENERAL RETAIL STORE'
+				)
+		THEN 'Commercial'
+		ELSE 'Land'
+	END;
 
 /*
 Create a view that excludes records that contain a LegalReference that appears multiple times with the same SalePrice
